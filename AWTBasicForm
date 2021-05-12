@@ -1,0 +1,22 @@
+package Day2;
+
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.Panel;
+
+public class test {
+
+	public static void main(String[] args) {
+		Frame f = new Frame();
+		Panel p = new Panel();		
+		Button b1 = new Button("확인");
+		//b1.setLabel("확인");
+		p.add(b1);
+		f.add(p);
+		
+		f.setTitle("제목");
+		f.setSize(500, 300);
+		f.setVisible(true);
+	}
+
+}
