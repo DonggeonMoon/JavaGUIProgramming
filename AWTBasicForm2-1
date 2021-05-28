@@ -1,0 +1,238 @@
+package guiprogramming;
+
+import java.awt.Button;
+import java.awt.Checkbox;
+import java.awt.CheckboxGroup;
+import java.awt.Choice;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.Label;
+import java.awt.List;
+import java.awt.Menu;
+import java.awt.MenuBar;
+import java.awt.MenuItem;
+import java.awt.TextArea;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import guiprogramming.AwtEx.Handler5;
+
+public class AwtEx extends Frame implements ActionListener, WindowListener {
+	Frame frame;
+	MenuBar menuBar;
+	Menu menu1, menu2, menu3, menu4, menu5, menu6;
+	MenuItem menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, menuItem6;
+	Label label1, label2;
+	TextField textField1, textField2;
+	Choice choice1;
+	List list1;
+	Button btn1, btn2, btn3, btn4, btn5;
+	Checkbox checkbox1, checkbox2, checkbox3;
+	CheckboxGroup checkboxGroup;
+	Checkbox checkbox4, checkbox5, checkbox6;// 
+	TextArea textarea;
+	
+	AwtEx(String title) {
+		
+		super(title);
+		menuBar =new MenuBar();
+		menu1 = new Menu("파일");
+		menu2 = new Menu("편집");
+		menu3 = new Menu("실행");
+		menu4 = new Menu("옵션");
+		menu5 = new Menu("창");
+		menu6 = new Menu("도움말");
+		
+		MenuItem menuItem1 = new MenuItem("새 파일");
+		MenuItem menuItem2 = new MenuItem("열기");
+		MenuItem menuItem3 = new MenuItem("저장");
+		MenuItem menuItem4 = new MenuItem("잘라내기");
+		MenuItem menuItem5 = new MenuItem("복사");
+		MenuItem menuItem6 = new MenuItem("붙여넣기");
+		
+		menuBar.add(menu1);
+		menuBar.add(menu2);
+		menuBar.add(menu3);
+		menuBar.add(menu4);
+		menuBar.add(menu5);
+		menuBar.add(menu6);
+		
+		menu1.add(menuItem1);
+		menu1.add(menuItem2);
+		menu1.add(menuItem3);
+		menu2.add(menuItem4);
+		menu2.add(menuItem5);
+		menu2.add(menuItem6);
+		
+		setSize(1000, 800);
+		setLocation(400, 200);
+		setVisible(true);
+		setMenuBar(menuBar);
+		
+		this.addWindowListener(this);
+		
+		setLayout(null);
+		
+		label1 =new Label("ID:", Label.RIGHT);
+		textField1 = new TextField(10);
+		label2 =new Label("Password:", Label.RIGHT);
+		textField2 = new TextField(10);
+		choice1 =new Choice();
+		btn1 = new Button("검은 배경");
+		btn2 = new Button("파란 배경");
+		btn3 = new Button("초록 배경");
+		btn4 = new Button("빨간 배경");
+		btn5 = new Button("닫기");
+		checkbox1 = new Checkbox("항목1", true);
+		checkbox2 = new Checkbox("항목2", false);
+		checkbox3 = new Checkbox("항목3", false);
+		checkboxGroup = new CheckboxGroup();
+		checkbox4 = new Checkbox("항목1", true);
+		checkbox5 = new Checkbox("항목2", false);
+		checkbox6 = new Checkbox("항목3", false);
+		list1 = new List();
+		textarea = new TextArea();
+
+		label1.setSize(80, 30);
+		label1.setLocation(0, 60);
+		label2.setSize(80, 30);
+		label2.setLocation(0, 100);
+		textField1.setSize(100, 30);
+		textField1.setLocation(90, 60);
+		textField2.setSize(100, 30);
+		textField2.setLocation(90, 100);
+		choice1.setSize(100, 30);
+		choice1.setLocation(90,140);
+		list1.setSize(100, 140);
+		list1.setLocation(90,180);
+		checkbox1.setSize(80, 30);
+		checkbox1.setLocation(90, 320);
+		checkbox2.setSize(80, 30);
+		checkbox2.setLocation(180, 320);
+		checkbox3.setSize(80, 30);
+		checkbox3.setLocation(270, 320);
+		checkbox4.setSize(80, 30);
+		checkbox4.setLocation(90, 350);
+		checkbox5.setSize(80, 30);
+		checkbox5.setLocation(180, 350);
+		checkbox6.setSize(80, 30);
+		checkbox6.setLocation(270, 350);
+		checkbox4.setCheckboxGroup(checkboxGroup);
+		checkbox5.setCheckboxGroup(checkboxGroup);
+		checkbox6.setCheckboxGroup(checkboxGroup);
+		btn1.setSize(80,30);
+		btn1.setLocation(30, 400);
+		btn2.setSize(80,30);
+		btn2.setLocation(130, 400);
+		btn3.setSize(80,30);
+		btn3.setLocation(230, 400);
+		btn4.setSize(80,30);
+		btn4.setLocation(330, 400);
+		btn5.setSize(80,30);
+		btn5.setLocation(430, 400);
+		textarea.setSize(960, 200);
+		textarea.setLocation(20, 500);
+		
+		add(checkbox1);
+		add(checkbox2);
+		add(checkbox3);
+		add(checkbox4);
+		add(checkbox5);
+		add(checkbox6);
+		add(label1);
+		add(textField1);
+		add(label2);
+		add(textField2);
+		add(choice1);
+		choice1.add("항목1");
+		choice1.add("항목2");
+		choice1.add("항목3");
+		choice1.add("항목4");
+		choice1.add("항목5");
+		choice1.add("항목6");
+		list1.add("항목1");
+		list1.add("항목2");
+		list1.add("항목3");
+		list1.add("항목4");
+		list1.add("항목5");
+		list1.add("항목6");
+		list1.add("항목7");
+		list1.add("항목8");
+		list1.add("항목9");
+		list1.add("항목10");
+		add(list1);
+		add(btn1);
+		add(btn2);
+		add(btn3);
+		add(btn4);
+		add(btn5);
+		add(textarea);
+		
+		btn1.addActionListener(this);
+		btn2.addActionListener(this);
+		btn3.addActionListener(this);
+		btn4.addActionListener(this);
+		Handler5 hd5 = new Handler5();
+		btn5.addActionListener(hd5);
+	}
+	
+	public static void main(String[] args) {
+		new AwtEx("WindowForm");
+	}
+	class Handler5 implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			System.exit(0);
+		}
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		Object obj = e.getSource();
+		if(obj == btn1) {
+			this.setBackground(Color.black);
+		} else if (obj == btn2) {
+			this.setBackground(Color.blue);
+		} else if (obj == btn3) {
+			this.setBackground(Color.green);
+		} else if (obj == btn4) {
+			this.setBackground(Color.red);
+		}
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		
+		System.out.println("창 열림");
+	}
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.out.println("창 닫히는 중");
+		System.exit(0);
+	}
+	@Override
+	public void windowClosed(WindowEvent e) {
+		System.out.println("창 닫힘");		
+	}
+	@Override
+	public void windowIconified(WindowEvent e) {
+		System.out.println("창 아이콘화됨");		
+	}
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		System.out.println("창 아이콘 복원");		
+	}
+	@Override
+	public void windowActivated(WindowEvent e) {
+		System.out.println("창 활성화됨");		
+	}
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		System.out.println("창 비활성화됨");		
+	}
+}
